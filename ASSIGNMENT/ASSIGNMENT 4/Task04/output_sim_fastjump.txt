@@ -1,0 +1,36 @@
+
+LIGHT  (mean inter-arrival 10.0 ms), 10000 requests
+Algo      avg move/req  avg wait (ms)  max wait (ms)   std dev (ms)
+FCFS             66.66           1.64          31.57           3.15
+SSTF             64.27           1.28          22.23           2.46
+SCAN            109.89           5.18          26.77           4.98
+C-SCAN          174.08           4.57          22.53           4.28
+LOOK             64.39           1.31          18.59           2.49
+C-LOOK           66.02           1.52          24.88           3.01
+Mean wait (ms) by cylinder zone    0-39  40-79 80-119 120-159 160-199   spread(max-min)
+  SCAN                           5.28   5.05   5.05    5.12     5.40       0.36
+  C-SCAN                         7.04   5.48   4.13    3.31     2.86       4.18
+
+MEDIUM (mean inter-arrival  4.5 ms), 10000 requests
+Algo      avg move/req  avg wait (ms)  max wait (ms)   std dev (ms)
+FCFS             66.72          16.45         130.17          19.03
+SSTF             54.55           3.26          36.54           4.06
+SCAN             70.93           7.76          31.09           5.82
+C-SCAN          120.03           6.29          24.38           4.53
+LOOK             54.59           3.33          22.65           3.92
+C-LOOK           57.98           4.63          33.43           5.26
+Mean wait (ms) by cylinder zone    0-39  40-79 80-119 120-159 160-199   spread(max-min)
+  SCAN                           8.77   7.26   6.83    7.41     8.52       1.94
+  C-SCAN                         8.11   6.77   5.95    5.48     5.13       2.98
+
+HEAVY  (mean inter-arrival  3.2 ms), 10000 requests
+Algo      avg move/req  avg wait (ms)  max wait (ms)   std dev (ms)
+FCFS             66.47        3597.28        6965.20        1941.78
+SSTF             45.01           4.97          52.83           5.24
+SCAN             50.22           8.70          32.59           6.19
+C-SCAN           88.15           6.95          26.64           4.62
+LOOK             45.14           5.11          24.17           4.68
+C-LOOK           47.05           7.32          31.54           6.14
+Mean wait (ms) by cylinder zone    0-39  40-79 80-119 120-159 160-199   spread(max-min)
+  SCAN                           9.84   8.17   7.29    8.03    10.28       2.99
+  C-SCAN                         8.37   7.03   6.78    6.38     6.17       2.20

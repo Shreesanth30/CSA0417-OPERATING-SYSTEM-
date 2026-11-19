@@ -1,0 +1,20 @@
+
+SSTF with a stream near cylinder 60  (simulated 2000 ms, 15 requests still queued at the end)
+  request at cylinder  98 : NOT served - starved
+  request at cylinder 183 : NOT served - starved
+  request at cylinder  37 : NOT served - starved
+  request at cylinder 122 : NOT served - starved
+  request at cylinder  14 : NOT served - starved
+  request at cylinder 124 : NOT served - starved
+  request at cylinder  65 : served at t = 1.1 ms
+  request at cylinder  67 : served at t = 2.1 ms
+
+SCAN with the same stream  (simulated 2000 ms, 49 requests still queued at the end)
+  request at cylinder  98 : served at t = 3.5 ms
+  request at cylinder 183 : served at t = 7.3 ms
+  request at cylinder  37 : served at t = 24.9 ms
+  request at cylinder 122 : served at t = 4.7 ms
+  request at cylinder  14 : served at t = 26.2 ms
+  request at cylinder 124 : served at t = 5.7 ms
+  request at cylinder  65 : served at t = 1.1 ms
+  request at cylinder  67 : served at t = 2.1 ms

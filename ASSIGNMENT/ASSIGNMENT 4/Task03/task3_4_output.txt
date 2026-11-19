@@ -1,0 +1,70 @@
+$ stat notes.txt   (a small file created for the demo)
+  File: notes.txt
+  Size: 49        	Blocks: 8          IO Block: 4096   regular file
+Device: 254,0	Inode: 434217      Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2026-11-19 08:39:10.155764875 +0000
+Modify: 2026-11-19 08:39:10.155764875 +0000
+Change: 2026-11-19 08:39:10.155764875 +0000
+ Birth: 2026-11-19 08:39:10.155764875 +0000
+
+$ ls -li notes.txt ext4test.img
+434215 -rw-r--r-- 1 root root 67108864 Nov 19 08:39 ext4test.img
+434217 -rw-r--r-- 1 root root       49 Nov 19 08:39 notes.txt
+
+$ df -i .
+Filesystem       Inodes  IUsed    IFree IUse% Mounted on
+/dev/vda       16777216 165029 16612187    1% /
+
+$ df -h .
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda        252G  6.6G   10G  40% /
+
+$ tune2fs -l ext4test.img | egrep "Block size|Block count|Free blocks|Inode count|Free inodes|Inode size|Filesystem features|Journal|Filesystem volume name"
+Filesystem volume name:   csa04demo
+Filesystem features:      has_journal ext_attr resize_inode dir_index filetype extent 64bit flex_bg sparse_super large_file huge_file dir_nlink extra_isize metadata_csum
+Inode count:              16384
+Block count:              16384
+Free blocks:              14319
+Free inodes:              16373
+Block size:               4096
+Inode size:	          256
+Journal inode:            8
+Journal backup:           inode blocks
+
+$ dumpe2fs -h ext4test.img | head -25
+dumpe2fs 1.47.0 (5-Feb-2023)
+Filesystem volume name:   csa04demo
+Last mounted on:          <not available>
+Filesystem UUID:          c813fe81-1e8c-4143-af66-ffcf795098dc
+Filesystem magic number:  0xEF53
+Filesystem revision #:    1 (dynamic)
+Filesystem features:      has_journal ext_attr resize_inode dir_index filetype extent 64bit flex_bg sparse_super large_file huge_file dir_nlink extra_isize metadata_csum
+Filesystem flags:         signed_directory_hash 
+Default mount options:    user_xattr acl
+Filesystem state:         clean
+Errors behavior:          Continue
+Filesystem OS type:       Linux
+Inode count:              16384
+Block count:              16384
+Reserved block count:     819
+Overhead clusters:        2059
+Free blocks:              14319
+Free inodes:              16373
+First block:              0
+Block size:               4096
+Fragment size:            4096
+Group descriptor size:    64
+Reserved GDT blocks:      7
+Blocks per group:         32768
+Fragments per group:      32768
+
+$ cat /sys/block/vda/queue/scheduler
+none [mq-deadline] kyber bfq 
+
+$ lsblk -d -o NAME,ROTA,SIZE 2>/dev/null | head
+NAME  ROTA  SIZE
+zram0    0    0B
+vda      1  256G
+vdb      1  9.5M
+vdc      1  752K

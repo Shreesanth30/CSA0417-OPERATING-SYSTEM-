@@ -1,0 +1,4 @@
+entries in the flat directory : 600000
+flat directory :   311878 name comparisons / lookup,    0.782 ms / lookup
+3-level tree   :      342 name comparisons / lookup,   0.0014 ms / lookup
+speed-up (comparisons): 912 x
